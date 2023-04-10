@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "name": "Camionero",
+      "price": 2500,
+      "change": "ARS",
+      "img": "/producto5.png",
+      "categorie": "camionero",
+      "id": 1
+    },
+    {
+      "name": "Camionero Black",
+      "price": 2000,
+      "change": "ARS",
+      "img": "/producto6.png",
+      "categorie": "camionero",
+      "id": 2
+    },
+    {
+      "name": "Camionero Brown",
+      "price": 2700,
+      "change": "ARS",
+      "img": "/producto7.png",
+      "categorie": "camionero",
+      "id": 3
+    },
+    {
+      "name": "Torpedo Delux",
+      "price": 10000,
+      "change": "ARS",
+      "img": "/producto8.png",
+      "categorie": "torpedo",
+      "id": 4
+    },
+    {
+      "name": "Torpedo",
+      "price": 3500,
+      "change": "ARS",
+      "img": "/producto9.png",
+      "categorie": "torpedo",
+      "id": 5
+    },
+    {
+      "name": "Imperial",
+      "price": 7500,
+      "change": "ARS",
+      "img": "/producto1.png",
+      "categorie": "imperial",
+      "id": 6
+    },
+    {
+      "name": "Imperial Premium",
+      "price": 12500,
+      "change": "ARS",
+      "img": "/producto2.png",
+      "categorie": "imperial",
+      "id": 7
+    },
+    {
+      "name": "Torpedo Cuero",
+      "price": 5500,
+      "change": "ARS",
+      "img": "/producto3.png",
+      "categorie": "torpedo",
+      "id": 8
+    }
+  ]
+}

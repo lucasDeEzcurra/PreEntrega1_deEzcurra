@@ -1,77 +1,62 @@
-import { Row, Col, Container } from 'react-bootstrap';
-import ProductItem from "./ProductItem"
+import { Row, Col, Container } from 'react-bootstrap'
+import ProductItem from './ProductItem'
+import productsJSON from '../products.json'
+import { useState } from 'react'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 
-let products = [
-    {
-      name: 'Camionero',
-      price: 2500,
-      change: 'ARS',
-      img: '/producto5.png',
-      id: 1,
-    },
-    {
-      name: 'Camionero Black',
-      price: 2000,
-      change: 'ARS',
-      img: '/producto6.png',
-      id: 2,
-    },
-    {
-      name: 'Camionero Brown',
-      price: 2700,
-      change: 'ARS',
-      img: '/producto7.png',
-      id: 3,
-    },
-    {
-      name: 'Torpedo Delux',
-      price: 10000,
-      change: 'ARS',
-      img: '/producto8.png',
-      id: 4,
-    },
-    {
-      name: 'Torpedo',
-      price: 3500,
-      change: 'ARS',
-      img: '/producto9.png',
-      id: 5,
-    },
-    {
-      name: 'Imperial',
-      price: 7500,
-      change: 'ARS',
-      img: '/producto1.png',
-      id: 6,
-    },
-    {
-      name: 'Imperial Premium',
-      price: 12500,
-      change: 'ARS',
-      img: '/producto2.png',
-      id: 7,
-    },
-    {
-      name: 'Torpedo Cuero',
-      price: 5500,
-      change: 'ARS',
-      img: '/producto3.png',
-      id: 8,
-    },
-  ]
+const ItemListContainer = ({greeting}) => {
+  const [products, setProducts] = useState(productsJSON.products)
+  const [categorie, setCategorie] = useState('all')
 
-const ItemListContainer = () => {
-    return (
-        <Container className='mb-5'>
-            <Row xs={1} md={2} lg={3}>
-            {products.map((product) => (
-                    <Col key={product.id} align='center'>
-                        <ProductItem name={product.name} img={product.img} price={product.price}/>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    )
+  return (
+    <Container className="mb-5">
+      <DropdownButton
+        className='d-inline'
+        variant="secondary"
+        id="dropdown-basic-button"
+        title="Categories"
+      >
+        <Dropdown.Item onClick={() => setCategorie('all')}>Todos</Dropdown.Item>
+        <Dropdown.Item onClick={() => setCategorie('camionero')}>
+          Camioneros
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => setCategorie('imperial')}>
+          Imperiales
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => setCategorie('torpedo')}>
+          Torpedos
+        </Dropdown.Item>
+      </DropdownButton>
+      <h4 className='d-inline m-5 '>{greeting}</h4>
+      <Row xs={1} md={2} lg={3}>
+        {products.map((product) => {
+          if (categorie === 'all') {
+            return (
+              <Col key={product.id} align="center">
+                <ProductItem
+                  name={product.name}
+                  img={product.img}
+                  price={product.price}
+                />
+              </Col>
+            )
+          } else if (product.categorie === categorie) {
+            return (
+              <Col key={product.id} align="center">
+                <ProductItem
+                  name={product.name}
+                  img={product.img}
+                  price={product.price}
+                />
+              </Col>
+            )
+          }
+          return ''
+        })}
+      </Row>
+    </Container>
+  )
 }
 
 export default ItemListContainer
