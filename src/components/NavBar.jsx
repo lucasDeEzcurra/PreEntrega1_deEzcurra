@@ -28,7 +28,7 @@ function NavBar() {
               <Nav.Link href="/productos">Productos</Nav.Link>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
               <Nav.Link href="/encontranos">Encontranos</Nav.Link>
-              <Nav.Link href="/carrito"><CartWidget/></Nav.Link>
+              <Nav.Link href="/carrito"><CartWidget count={}/></Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
