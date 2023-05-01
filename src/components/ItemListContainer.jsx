@@ -1,13 +1,14 @@
 import { Row, Col, Container } from 'react-bootstrap'
 import ProductItem from './ProductItem'
 import productsJSON from '../products.json'
-import { useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const ItemListContainer = ({greeting}) => {
-  const [products, setProducts] = useState(productsJSON.products)
-  const [categorie, setCategorie] = useState('all')
+const ItemListContainer = () => {
+  const products = productsJSON.products
+  const {categoryId} = useParams()
+  const navigate = useNavigate()
 
   return (
     <Container className="mb-5">
@@ -17,37 +18,38 @@ const ItemListContainer = ({greeting}) => {
         id="dropdown-basic-button"
         title="Categories"
       >
-        <Dropdown.Item onClick={() => setCategorie('all')}>Todos</Dropdown.Item>
-        <Dropdown.Item onClick={() => setCategorie('camionero')}>
+        <Dropdown.Item onClick={() => navigate('/')}>Todos</Dropdown.Item>
+        <Dropdown.Item onClick={() => navigate('/category/camionero')}>
           Camioneros
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => setCategorie('imperial')}>
+        <Dropdown.Item onClick={() => navigate('/category/imperial')}>
           Imperiales
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => setCategorie('torpedo')}>
+        <Dropdown.Item onClick={() => navigate('/category/torpedo')}>
           Torpedos
         </Dropdown.Item>
       </DropdownButton>
-      <h4 className='d-inline m-5 '>{greeting}</h4>
       <Row xs={1} md={2} lg={3}>
         {products.map((product) => {
-          if (categorie === 'all') {
+          if (categoryId === undefined) {
             return (
               <Col key={product.id} align="center">
                 <ProductItem
                   name={product.name}
                   img={product.img}
                   price={product.price}
+                  id={product.id}
                 />
               </Col>
             )
-          } else if (product.categorie === categorie) {
+          } else if (product.categorie === categoryId) {
             return (
-              <Col key={product.id} align="center">
+              <Col key={product.id} align="center" >
                 <ProductItem
                   name={product.name}
                   img={product.img}
                   price={product.price}
+                  id={product.id}
                 />
               </Col>
             )

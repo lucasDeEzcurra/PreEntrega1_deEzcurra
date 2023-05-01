@@ -1,9 +1,8 @@
 import { BsCart } from "react-icons/bs"
 import cart from '../cart.json'
-import { useState } from "react"
 
 const CartWidget = () => {
-    const [cartProducts, setCartProducts] = useState(cart.products)
+    const cartProducts = cart.products
 
     return (
         <div>
