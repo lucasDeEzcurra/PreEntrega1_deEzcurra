@@ -1,17 +1,19 @@
 import { Row, Col, Container } from 'react-bootstrap'
 import ProductItem from './ProductItem'
 import productsJSON from '../products.json'
+import CartContainer from './CartContainer'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count, setCount, hidden}) => {
   const products = productsJSON.products
   const {categoryId} = useParams()
   const navigate = useNavigate()
 
   return (
     <Container className="mb-5">
+      
       <DropdownButton
         className='d-inline'
         variant="secondary"
@@ -29,12 +31,15 @@ const ItemListContainer = () => {
           Torpedos
         </Dropdown.Item>
       </DropdownButton>
+      
       <Row xs={1} md={2} lg={3}>
         {products.map((product) => {
           if (categoryId === undefined) {
             return (
               <Col key={product.id} align="center">
                 <ProductItem
+                  setCartProducts={setCartProducts}
+                  cartProducts={cartProducts}
                   name={product.name}
                   img={product.img}
                   price={product.price}
@@ -46,6 +51,8 @@ const ItemListContainer = () => {
             return (
               <Col key={product.id} align="center" >
                 <ProductItem
+                  cartProducts={cartProducts}
+                  setCartProducts={setCartProducts}
                   name={product.name}
                   img={product.img}
                   price={product.price}

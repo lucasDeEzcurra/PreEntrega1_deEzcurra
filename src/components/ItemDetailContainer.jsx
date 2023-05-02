@@ -3,7 +3,7 @@ import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FaMoneyBillAlt, FaArrowLeft } from 'react-icons/fa';
 import productsJSON from '../products.json';
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({cartProducts, total, setTotal, count, setCount}) => {
     const { productId } = useParams();
     const product = productsJSON.products.find(p => p.id === parseInt(productId));
     const navigate = useNavigate()

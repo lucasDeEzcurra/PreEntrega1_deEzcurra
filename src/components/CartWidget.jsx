@@ -1,9 +1,11 @@
+import CartContainer from "./CartContainer";
 import { BsCart } from "react-icons/bs"
-import cart from '../cart.json'
 
-const CartWidget = () => {
-    const cartProducts = cart.products
-
+const CartWidget = ({cartProducts,total,hidden,setHidden}) => {
+    console.log(cartProducts);
+    const onHidden = () => {
+        setHidden(!hidden)
+    }
     return (
         <div>
             <div className="cart">
@@ -12,7 +14,8 @@ const CartWidget = () => {
                     <div className="cart-item-count">{cartProducts.length}</div>
                  } 
             </div>
-            <BsCart/>
+            <BsCart onClick={() => onHidden()}/>   
+             
         </div>
     )
 }
