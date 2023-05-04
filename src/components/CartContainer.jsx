@@ -2,20 +2,15 @@ import React from 'react';
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import { BsTrash } from 'react-icons/bs';
 
-const CartContainer = ({ cartProducts, total, onRemoveProduct, onDecreaseQuantity, hidden, setHidden}) => {
-    console.log(hidden);
+const CartContainer = ({ cartProducts, total, onRemoveProduct, onDecreaseQuantity}) => {
     return (
-      <div className="cart-container" hidden={hidden} style={{ position: "fixed", top: "60px", right: "0", width: "300px", backgroundColor: "white", border: "1px solid #ccc", borderRadius: "5px", padding: "10px",zIndex: '9999', }}>
-        <Button variant="light" className="cart-btn">
-          <i className="fa fa-shopping-cart"></i>
-        </Button>
         <div className="cart-items">
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th>Qty</th>
-                <th>Name</th>
-                <th>Price</th>
+                <th>Cantidad</th>
+                <th>Nombre</th>
+                <th>Precio</th>
                 <th></th>
               </tr>
             </thead>
@@ -50,7 +45,6 @@ const CartContainer = ({ cartProducts, total, onRemoveProduct, onDecreaseQuantit
             </Col>
           </Row>
         </div>
-      </div>
     );
   };
 

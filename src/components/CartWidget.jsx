@@ -1,21 +1,20 @@
-import CartContainer from "./CartContainer";
 import { BsCart } from "react-icons/bs"
 
+
 const CartWidget = ({cartProducts,total,hidden,setHidden}) => {
-    console.log(cartProducts);
-    const onHidden = () => {
-        setHidden(!hidden)
-    }
+
+    let count = 0
+    cartProducts.map(e=> count += e.quantity)
+    
     return (
         <div>
             <div className="cart">
                 <i className="fas fa-shopping-cart"></i>
                  {cartProducts.length > 0 &&
-                    <div className="cart-item-count">{cartProducts.length}</div>
+                    <div className="cart-item-count">{count}</div>
                  } 
             </div>
-            <BsCart onClick={() => onHidden()}/>   
-             
+            <BsCart/>
         </div>
     )
 }

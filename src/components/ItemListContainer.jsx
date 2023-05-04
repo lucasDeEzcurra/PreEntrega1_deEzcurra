@@ -1,12 +1,11 @@
 import { Row, Col, Container } from 'react-bootstrap'
 import ProductItem from './ProductItem'
 import productsJSON from '../products.json'
-import CartContainer from './CartContainer'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count, setCount, hidden}) => {
+const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count, setCount, hidden,onAddToCart}) => {
   const products = productsJSON.products
   const {categoryId} = useParams()
   const navigate = useNavigate()
@@ -38,6 +37,7 @@ const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count
             return (
               <Col key={product.id} align="center">
                 <ProductItem
+                  onAddToCart={onAddToCart}
                   setCartProducts={setCartProducts}
                   cartProducts={cartProducts}
                   name={product.name}
@@ -51,6 +51,7 @@ const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count
             return (
               <Col key={product.id} align="center" >
                 <ProductItem
+                  onAddToCart={onAddToCart}
                   cartProducts={cartProducts}
                   setCartProducts={setCartProducts}
                   name={product.name}

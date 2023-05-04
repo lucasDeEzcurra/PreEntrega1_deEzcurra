@@ -3,20 +3,10 @@ import Card from 'react-bootstrap/Card';
 import productsJSON from '../products.json'
 import {useNavigate } from 'react-router-dom';
 
-const ProductItem = ({name,price,img,id,setCartProducts,cartProducts}) => {
+const ProductItem = ({name,price,img,id,setCartProducts,cartProducts,onAddToCart}) => {
     const navigate = useNavigate()
 
-    const onAddToCart = (productId) => {
-       let productToCart = productsJSON.products.find(e => e.id === productId)
-       productToCart.quantity = 1
-       if (cartProducts.find(e => e.id === productId) ) {
-          const products =  cartProducts.map(e => e.id === productId ? {...e,quantity: e.quantity + 1} : e)
-         return setCartProducts([...products])
-       }
-
-      setCartProducts([...cartProducts, productToCart])    
-    }
-
+    
 
     return (
         <Card className='cardStyle'>

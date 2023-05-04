@@ -3,7 +3,7 @@ import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FaMoneyBillAlt, FaArrowLeft } from 'react-icons/fa';
 import productsJSON from '../products.json';
 
-const ItemDetailContainer = ({cartProducts, total, setTotal, count, setCount}) => {
+const ItemDetailContainer = ({cartProducts, total, setTotal, count, setCount,onAddToCart}) => {
     const { productId } = useParams();
     const product = productsJSON.products.find(p => p.id === parseInt(productId));
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ const ItemDetailContainer = ({cartProducts, total, setTotal, count, setCount}) =
               <FaMoneyBillAlt />
             </h3>
             <p>{product.description}</p>
-            <Button variant="primary">Agregar al carrito</Button>
+            <Button onClick={() => onAddToCart(product.id)} variant="primary">Agregar al carrito</Button>
             <Button variant="light" className="ml-3" onClick={() => navigate(-1)}>
               <FaArrowLeft /> Volver
             </Button>
