@@ -5,10 +5,9 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { CartContext } from '../context/CartContext';
-import {useContext} from 'react'
 
-function NavBar({cartProducts, total, setTotal, count, setCount,setHidden,hidden}) {
+
+function NavBar() {
 
   return (
     <> 
@@ -33,7 +32,7 @@ function NavBar({cartProducts, total, setTotal, count, setCount,setHidden,hidden
               <Nav.Link as={Link} to="/">Productos</Nav.Link>
               <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
               <Nav.Link as={Link} to="/encontranos">Encontranos</Nav.Link>
-              <Button as={Link} to="/cart"><CartWidget cartProducts={cartProducts} setHidden={setHidden} hidden={hidden} total={total}/></Button>
+              <Button as={Link} to="/cart"><CartWidget/></Button>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

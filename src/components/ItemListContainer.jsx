@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count, setCount, hidden,onAddToCart}) => {
+const ItemListContainer = () => {
   const products = productsJSON.products
   const {categoryId} = useParams()
   const navigate = useNavigate()
@@ -37,9 +37,6 @@ const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count
             return (
               <Col key={product.id} align="center">
                 <ProductItem
-                  onAddToCart={onAddToCart}
-                  setCartProducts={setCartProducts}
-                  cartProducts={cartProducts}
                   name={product.name}
                   img={product.img}
                   price={product.price}
@@ -51,9 +48,6 @@ const ItemListContainer = ({cartProducts,setCartProducts, total, setTotal, count
             return (
               <Col key={product.id} align="center" >
                 <ProductItem
-                  onAddToCart={onAddToCart}
-                  cartProducts={cartProducts}
-                  setCartProducts={setCartProducts}
                   name={product.name}
                   img={product.img}
                   price={product.price}

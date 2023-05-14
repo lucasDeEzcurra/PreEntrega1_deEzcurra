@@ -2,6 +2,7 @@ import { Navbar } from "react-bootstrap";
 import { BsInstagram, BsFacebook, BsTwitter, BsGithub, BsYoutube} from "react-icons/bs";
 
 const Footer = () => {
+    
     return (
         <>
             <Navbar bg="dark" expand={"md"} className="" fixed="bottom">

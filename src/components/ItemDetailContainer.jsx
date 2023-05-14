@@ -2,11 +2,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FaMoneyBillAlt, FaArrowLeft } from 'react-icons/fa';
 import productsJSON from '../products.json';
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
-const ItemDetailContainer = ({cartProducts, total, setTotal, count, setCount,onAddToCart}) => {
+const ItemDetailContainer = () => {
+  
     const { productId } = useParams();
     const product = productsJSON.products.find(p => p.id === parseInt(productId));
     const navigate = useNavigate()
+
+
+  const {onAddToCart}  = useContext(CartContext)
+
+
     return (
       <Container className="my-5 py-5 bg-white rounded shadow-lg">
         <Row>

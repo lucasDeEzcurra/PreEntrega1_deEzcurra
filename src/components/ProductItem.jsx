@@ -1,11 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import productsJSON from '../products.json'
 import {useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
-const ProductItem = ({name,price,img,id,setCartProducts,cartProducts,onAddToCart}) => {
+const ProductItem = ({name,price,img,id}) => {
     const navigate = useNavigate()
 
+    const {onAddToCart} = useContext(CartContext)
     
 
     return (

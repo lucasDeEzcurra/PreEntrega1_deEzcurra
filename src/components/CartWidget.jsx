@@ -1,11 +1,13 @@
+import { useContext } from "react"
 import { BsCart } from "react-icons/bs"
+import { CartContext } from "../context/CartContext"
 
 
-const CartWidget = ({cartProducts,total,hidden,setHidden}) => {
+const CartWidget = () => {
 
+    const {cartProducts}  = useContext(CartContext)
     let count = 0
     cartProducts.map(e=> count += e.quantity)
-    
     return (
         <div>
             <div className="cart">
