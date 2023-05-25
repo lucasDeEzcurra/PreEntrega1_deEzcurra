@@ -1,25 +1,21 @@
 import React, { useState } from 'react'
 import { CartContext } from './CartContext'
-import productsJSON from "../products.json";
-
 
 export const CartProvider = ({children}) => {
 
     const [cartProducts, setCartProducts] = useState([])
     const [count, setCount] = useState(0);
 
-    const onAddToCart = (productId) => {
-        let productToCart = productsJSON.products.find((e) => e.id === productId);
-        productToCart.quantity = 1;
-        if (cartProducts.find((e) => e.id === productId)) {
-          const products = cartProducts.map((e) =>
-            e.id === productId ? { ...e, quantity: e.quantity + 1 } : e
+    const onAddToCart = (product) => {
+      if (cartProducts.find((e) => e.id === product.id)) {
+          const productToCart = cartProducts.map((e) =>
+            e.id === product.id ? { ...e, quantity: e.quantity + 1 } : e
           );
-          return setCartProducts([...products]);
+          return setCartProducts([...productToCart]);
         }
-    
-        setCartProducts([...cartProducts, productToCart]);
-      };
+      const productToCart = { ...product, quantity: 1 }
+      setCartProducts([...cartProducts, productToCart]);
+    };
 
       const onRemoveProduct = (productId) => {
         const newCart = cartProducts.filter((p) => p.id !== productId);
@@ -44,11 +40,14 @@ export const CartProvider = ({children}) => {
         });
         setCartProducts(newArray);
       };
-    
+
+      const onDeleteCartProducts = () => {
+        setCartProducts([]);
+      };
 
 
   return (
-        <CartContext.Provider value={{cartProducts,count,setCount,onAddToCart,onRemoveProduct,onDecreaseQuantity,onIncreaseQuantity}}>
+        <CartContext.Provider value={{cartProducts,count,setCount,onAddToCart,onRemoveProduct,onDecreaseQuantity,onIncreaseQuantity,onDeleteCartProducts}}>
             {children}
         </CartContext.Provider>
     )

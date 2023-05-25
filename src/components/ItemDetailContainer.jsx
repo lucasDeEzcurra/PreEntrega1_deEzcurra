@@ -1,25 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FaMoneyBillAlt, FaArrowLeft } from 'react-icons/fa';
-import productsJSON from '../products.json';
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../services/db";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ItemDetailContainer = () => {
   
     const { productId } = useParams();
-    const product = productsJSON.products.find(p => p.id === parseInt(productId));
+    const [product,setProduct] = useState({})
     const navigate = useNavigate()
+    const {onAddToCart}  = useContext(CartContext)
 
-
-  const {onAddToCart}  = useContext(CartContext)
+  useEffect(()=> {
+    const itemDb = doc(db,'items',productId)
+    getDoc(itemDb) 
+    .then(product => {
+      if(product.exists()) {
+        setProduct({ id: product.id,...product.data()})
+      }
+    })
+  },[productId])
 
 
     return (
       <Container className="my-5 py-5 bg-white rounded shadow-lg">
         <Row>
           <Col md={6}>
-            <Image src={product.img} fluid />
+            {product.img ? <Image src={product.img} fluid /> : <LoadingSpinner></LoadingSpinner>}
           </Col>
           <Col md={6} className="d-flex flex-column justify-content-center">
             <h2>{product.name}</h2>
@@ -31,7 +41,7 @@ const ItemDetailContainer = () => {
               <FaMoneyBillAlt />
             </h3>
             <p>{product.description}</p>
-            <Button onClick={() => onAddToCart(product.id)} variant="primary">Agregar al carrito</Button>
+            <Button onClick={() => onAddToCart(product)} variant="primary">Agregar al carrito</Button>
             <Button variant="light" className="ml-3" onClick={() => navigate(-1)}>
               <FaArrowLeft /> Volver
             </Button>

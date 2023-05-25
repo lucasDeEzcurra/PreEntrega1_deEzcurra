@@ -40,3 +40,48 @@
 .product-name {
   font-size: 1.5rem;
 }
+
+.btn-clicked {
+  animation: btn-clicked-animation 0.5s;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-clicked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: green;
+  animation: btn-clicked-color-animation 0.5s;
+}
+
+@keyframes btn-clicked-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btn-clicked-color-animation {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0.2;
+  }
+}

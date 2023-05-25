@@ -27,11 +27,8 @@ function NavBar() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/acerca">Acerca</Nav.Link>
               <Nav.Link as={Link} to="/">Productos</Nav.Link>
-              <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
-              <Nav.Link as={Link} to="/encontranos">Encontranos</Nav.Link>
+              <Nav.Link as={Link} to="/orders">Mis ordenes de compra</Nav.Link>
               <Button as={Link} to="/cart"><CartWidget/></Button>
                 </Nav>
               </Offcanvas.Body>
