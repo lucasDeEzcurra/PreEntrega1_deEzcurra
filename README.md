@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Carrito de Compras con React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TuUsuario/TuRepositorio/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/TuUsuario/TuRepositorio.svg)](https://github.com/TuUsuario/TuRepositorio/stargazers)
 
-## Available Scripts
+¡Bienvenido al repositorio del proyecto final de mi curso en CODERHAUSE! En este proyecto, he creado un carrito de compras utilizando tecnologías como **React**, **React-Bootstrap**, **Firebase** y **React-Router-DOM**, con la configuración inicial del proyecto realizada mediante **Create-React-App**.
 
-In the project directory, you can run:
+## Descripción
 
-### `npm start`
+El objetivo de este proyecto fue construir un carrito de compras totalmente funcional utilizando React y otras herramientas populares del ecosistema de React. El carrito de compras permite a los usuarios agregar, eliminar y actualizar la cantidad de productos. Además, se ha integrado **Firebase** para gestionar la persistencia de los datos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Características
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Interfaz de usuario intuitiva y amigable.
+- Listado de productos con información detallada.
+- Capacidad de agregar productos al carrito.
+- Actualización en tiempo real de la cantidad de productos en el carrito.
+- Eliminación de productos del carrito.
+- Persistencia de datos utilizando **Firebase**.
 
-### `npm test`
+## Tecnologías utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario interactivas.
+- **React-Bootstrap**: Conjunto de componentes de interfaz de usuario para React basado en Bootstrap.
+- **Firebase**: Plataforma de desarrollo de aplicaciones móviles y web que proporciona herramientas y servicios para crear y gestionar aplicaciones.
+- **React-Router-DOM**: Enrutador de enlaces para React que permite la navegación declarativa y basada en componentes.
+- **Create-React-App**: Herramienta de línea de comandos que configura automáticamente un proyecto de React con las mejores prácticas y las herramientas más utilizadas.
 
-### `npm run build`
+## Instalación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clona este repositorio en tu máquina local utilizando el siguiente comando:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+git clone <https://github.com/lucasDeEzcurra/PreEntrega2_deEzcurra.git>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Navega al directorio raíz del proyecto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+cd carrito-de-compras-react
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Instala las dependencias del proyecto: 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm install
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Configura tus credenciales de Firebase. Asegúrate de tener una cuenta de Firebase y crear un proyecto nuevo. Luego, sigue estos pasos:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   a. Abre el archivo `services/db.js` en tu editor de texto.
 
-### Code Splitting
+   b. Reemplaza el contenido actual con la siguiente configuración de Firebase:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```javascript
+// Importa las funciones que necesitas de los SDK que requieras
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-### Analyzing the Bundle Size
+// Tu configuración de Firebase
+const firebaseConfig = {
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_AUTH_DOMAIN",
+  projectId: "TU_PROJECT_ID",
+  storageBucket: "TU_STORAGE_BUCKET",
+  messagingSenderId: "TU_SENDER_ID",
+  appId: "TU_APP_ID"
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+// Inicializa Firebase
+initializeApp(firebaseConfig);
 
-### Making a Progressive Web App
+export const db = getFirestore();
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Recuerda reemplazar `"TU_API_KEY"`, `"TU_AUTH_DOMAIN"`, `"TU_PROJECT_ID"`, `"TU_STORAGE_BUCKET"`, `"TU_SENDER_ID"`, y `"TU_APP_ID"` con las credenciales correctas de tu proyecto de Firebase. Espero que esto sea de ayuda.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. Inicia la aplicación: 
 
-### Deployment
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+La aplicación estará disponible en http://localhost:3000.
 
-### `npm run build` fails to minify
+## Contribución
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+¡Eres más que bienvenido si deseas contribuir a este proyecto! Puedes seguir estos pasos:
+
+1. Haz un fork de este repositorio.
+2. Crea una rama para tus cambios:
+
+git checkout -b mi-rama
+
+
+3. Realiza tus modificaciones y mejoras.
+4. Commitea tus cambios:
+
+git commit -m "Agrego mis cambios"
+
+
+5. Sube tus cambios a tu repositorio:
+
+git push origin mi-rama
+
+
+6. Abre una solicitud de extracción en este repositorio.
+
+¡Gracias por tu interés en contribuir!
+
+
