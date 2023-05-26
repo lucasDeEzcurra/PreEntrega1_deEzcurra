@@ -1,13 +1,10 @@
 # Carrito de Compras con React
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TuUsuario/TuRepositorio/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/TuUsuario/TuRepositorio.svg)](https://github.com/TuUsuario/TuRepositorio/stargazers)
-
 ¡Bienvenido al repositorio del proyecto final de mi curso en CODERHAUSE! En este proyecto, he creado un carrito de compras utilizando tecnologías como **React**, **React-Bootstrap**, **Firebase** y **React-Router-DOM**, con la configuración inicial del proyecto realizada mediante **Create-React-App**.
 
 ## Descripción
 
-El objetivo de este proyecto fue construir un carrito de compras totalmente funcional utilizando React y otras herramientas populares del ecosistema de React. El carrito de compras permite a los usuarios agregar, eliminar y actualizar la cantidad de productos. Además, se ha integrado **Firebase** para gestionar la persistencia de los datos.
+El objetivo de este proyecto fue construir un carrito de compras totalmente funcional utilizando React y otras herramientas populares del ecosistema de React. El carrito de compras permite a los usuarios agregar, eliminar y actualizar la cantidad de productos. También generar ordenes de compra y almacenarlas para poder acceder a ellas cuando desees, se ha integrado **Firebase** para gestionar la persistencia de los datos.
 
 ## Características
 
@@ -16,6 +13,7 @@ El objetivo de este proyecto fue construir un carrito de compras totalmente func
 - Capacidad de agregar productos al carrito.
 - Actualización en tiempo real de la cantidad de productos en el carrito.
 - Eliminación de productos del carrito.
+- Generar ordenes de compra, y visualizarlas luego.
 - Persistencia de datos utilizando **Firebase**.
 
 ## Tecnologías utilizadas
