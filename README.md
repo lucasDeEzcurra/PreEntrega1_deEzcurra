@@ -35,7 +35,7 @@ git clone <https://github.com/lucasDeEzcurra/PreEntrega2_deEzcurra.git>
 
 2. Navega al directorio raíz del proyecto:
 
-cd carrito-de-compras-react
+cd proyectoFinal-deezcurra
 
 3. Instala las dependencias del proyecto: 
 
